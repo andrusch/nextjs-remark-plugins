@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
-const withMDXPlugin = require('@next/mdx'); 
-const withMDX = withMDXPlugin({
+import * as withMDXPlugin from '@next/mdx';
+import emoji from 'remark-emoji'; // TODO: UNCOMMENT
+
+const withMDX = withMDXPlugin.default({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [emoji], // TODO: UNCOMMENT
     rehypePlugins: [],
     providerImportSource: "@mdx-js/react",
   },
